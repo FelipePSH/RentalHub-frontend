@@ -1,7 +1,5 @@
-// components/AddApartmentButton.tsx
-
 import React from 'react';
-//flex justify-center items-center 
+
 const AddApartmentButton: React.FC = () => {
   return (
     <button className="border border-violet-700 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">

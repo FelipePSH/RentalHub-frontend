@@ -3,6 +3,7 @@ import AddApartmentButton from '../../components/AddApartmentButton'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import ApartmentCard from '../../components/ApartmentCard';
+import Layout from '@/components/Layout';
 
 interface ApartmentProps {
   id: number;
@@ -18,7 +19,7 @@ export default function Apartments() {
   const [apartments, setApartments] = useState<ApartmentProps[]>([]);
 
   const handleApartmentClick = (apartmentId: number) => {
-    push(`/ApartmentDetail/${apartmentId}`);
+    push(`/apartments/${apartmentId}`);
   };
 
   useEffect(() => {
@@ -29,7 +30,8 @@ export default function Apartments() {
   }, []);
 
   return (
-    <div className="container mx-auto mt-8">
+    <Layout>
+    <div className=" mx-auto mt-10 py-12 bg-white rounded-lg shadow-xl p-4 hover:shadow-lg border-1 ml-0 sm:ml-64">
       <h1 className="text-3xl mb-4">All Apartments</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <AddApartmentButton />
@@ -42,5 +44,6 @@ export default function Apartments() {
         ))}
       </div>
     </div>
+  </Layout>
   );
 }

@@ -27,20 +27,9 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({ apartment, handleApartmen
       />
       <hr />
       <h2 className="text-xl font-semibold mb-2">{apartment.name}</h2>
-      <p className="text-gray-600">{apartment.description}</p>
       <p className="text-gray-600 mt-2">
         {apartment.address.street}, {apartment.address.city}
       </p>
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-start-1 col-end-3">
-          <p className="text-gray-600 mt-2">Quartos: {apartment.bedrooms}</p>
-        </div>
-        <div className="col-end-7 col-span-2">
-          <p className="text-gray-600 mt-2">
-            Rent: <span className="text-green-500"> ${apartment.valueRent} </span>
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

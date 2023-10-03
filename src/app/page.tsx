@@ -1,9 +1,13 @@
 import Image from 'next/image'
+import 'tailwindcss/tailwind.css';
+import Layout from '@/components/Layout';
+import React, {useState} from 'react';
+import Apartments from '@/pages/apartments';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
-      <h1>Dashboard in construction</h1>
-    </main>
+    <Layout>
+    </Layout>
+  
   )
 }
