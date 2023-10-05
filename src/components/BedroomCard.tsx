@@ -1,33 +1,35 @@
-import React from 'react';
+import React from "react";
 
-interface bedroom { 
+interface BedroomModel {
   id: number;
   name: string;
-  description: string;
-  vacancy: number;
+  description?: string | null;
+  vacancy?: number | 2;
   residents: number;
 }
 
-interface bedroomCardProps {
-  bedroom: bedroom;
-  handlebedroomClick: (id: number) => void;
+interface BedroomCardProps {
+  bedroom: BedroomModel;
+  handleBedroomClick: (id: number) => void;
 }
 
-const BedroomCard: React.FC<bedroomCardProps> = ({ bedroom, handlebedroomClick }) => {
+const BedroomCard: React.FC<BedroomCardProps> = ({
+  bedroom,
+  handleBedroomClick,
+}) => {
   return (
     <div
       key={bedroom.id}
       className="bg-white rounded-lg shadow-md hover:shadow-lg border-1"
-      onClick={() => handlebedroomClick(bedroom.id)}
+      onClick={() => handleBedroomClick && handleBedroomClick(bedroom.id)}
     >
       <img
-        className='rounded-md'
+        className="rounded-md"
         src="https://www.homeishighpointe.com/corporate/uploads/SparkModelBedroom.jpg"
         alt=""
       />
       <hr />
       <h2 className="text-xl font-semibold mb-2">{bedroom.name}</h2>
-      
     </div>
   );
 };
