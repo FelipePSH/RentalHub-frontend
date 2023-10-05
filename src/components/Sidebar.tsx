@@ -22,14 +22,13 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
   { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/apartments" },
-  { id: 4, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
 ];
 
 const Sidebar: React.FC = () => {
   const [toggleCollapse, setToggleCollapse] = useState(false);
   const [isCollapsible, setIsCollapsible] = useState(false);
 
-  const router = useRouter();
+  const router = useRouter();   
 
   const activeMenu = useMemo(
     () => menuItems.find((menu) => menu.link === router.pathname),

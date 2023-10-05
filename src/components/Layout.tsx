@@ -1,5 +1,5 @@
+"use client";
 import React, { ReactNode } from "react";
-import { AppProps } from 'next/app';
 import Sidebar from "./Sidebar";
 
 interface LayoutProps {
