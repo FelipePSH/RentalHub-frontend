@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,7 +15,7 @@ import {
 interface MenuItem {
   id: number;
   label: string;
-  icon: React.FC;
+  icon?: React.FC; // tornando a propriedade icon opcional
   link: string;
 }
 
@@ -24,8 +24,6 @@ const menuItems: MenuItem[] = [
   { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/apartments" },
   { id: 4, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
 ];
-
-
 
 const Sidebar: React.FC = () => {
   const [toggleCollapse, setToggleCollapse] = useState(false);
@@ -100,25 +98,26 @@ const Sidebar: React.FC = () => {
         </div>
 
         <div className="flex flex-col items-start mt-24">
-          {menuItems.map(({ icon: Icon, ...menu}) => {
+          {menuItems.map(({ icon: Icon, ...menu }) => {
             const classes = getNavItemClasses(menu);
             return (
               <div className={classes} key={menu.id}>
-                <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full">
-                  
-                    <div style={{ width: "2.5rem" }}>
-                      <Icon />
-                    </div>
-                    {!toggleCollapse && (
-                      <span
-                        className={classNames(
-                          "text-md font-medium text-text-light"
-                        )}
-                      >
-                        {menu.label}
-                      </span>
-                    )}
-               
+                <Link
+                  href={menu.link}
+                  className="flex py-4 px-3 items-center w-full h-full"
+                >
+                  <div style={{ width: "2.5rem" }}>
+                    {Icon ? <Icon /> : null}
+                  </div>
+                  {!toggleCollapse && (
+                    <span
+                      className={classNames(
+                        "text-md font-medium text-text-light"
+                      )}
+                    >
+                      {menu.label}
+                    </span>
+                  )}
                 </Link>
               </div>
             );
@@ -126,7 +125,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
 
-      <div className={`${getNavItemClasses({})} px-3 py-4`}>
+      <div className="px-3 py-4">
         <div style={{ width: "2.5rem" }}>
           <LogoutIcon />
         </div>
