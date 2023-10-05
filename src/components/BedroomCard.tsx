@@ -10,18 +10,17 @@ interface BedroomModel {
 
 interface BedroomCardProps {
   bedroom: BedroomModel;
-  handleBedroomClick: (id: number) => void;
 }
 
 const BedroomCard: React.FC<BedroomCardProps> = ({
   bedroom,
-  handleBedroomClick,
+  //handleBedroomClick,
 }) => {
   return (
     <div
       key={bedroom.id}
       className="bg-white rounded-lg shadow-md hover:shadow-lg border-1"
-      onClick={() => handleBedroomClick && handleBedroomClick(bedroom.id)}
+      //onClick={() => handleBedroomClick && handleBedroomClick(bedroom.id)}
     >
       <img
         className="rounded-md"
