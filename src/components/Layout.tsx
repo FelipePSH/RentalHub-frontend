@@ -1,13 +1,20 @@
-import React from 'react';
-import Navbar from './Sidebar';
+import React, { ReactNode } from "react";
+import { AppProps } from 'next/app';
+import Sidebar from "./Sidebar";
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
   return (
-    <div>
-      <Navbar />
-      <main className="container mx-auto p-4">{children}</main>
+    <div className="h-screen flex flex-row justify-start"> 
+      <Sidebar />
+      <div className="bg-pampas-50 flex-1 p-4 dark:text-text-lighter">
+         {children}
+      </div>
     </div>
   );
-};
+}
 
 export default Layout;

@@ -1,13 +1,15 @@
-import Image from 'next/image'
-import 'tailwindcss/tailwind.css';
 import Layout from '@/components/Layout';
-import React, {useState} from 'react';
-import Apartments from '@/pages/apartments';
+import 'tailwindcss/tailwind.css';
+import classnames from "classnames";
+
 
 export default function Home() {
+  const wrapperClasses = classnames()
   return (
-    <Layout>
-    </Layout>
+    
+    <div className='text-black bg-sky-400'>
+      <Layout/>
+    </div>
   
   )
 }
