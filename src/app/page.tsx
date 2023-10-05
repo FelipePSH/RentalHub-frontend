@@ -8,7 +8,9 @@ export default function Home() {
   return (
     
     <div className='text-black bg-sky-400'>
-      <Layout/>
+      <Layout>
+        
+      </Layout>
     </div>
   
   )
