@@ -9,7 +9,6 @@ import {
   HomeIcon,
   LogoIcon,
   LogoutIcon,
-  UsersIcon,
   VideosIcon,
 } from "./icons";
 
@@ -23,7 +22,6 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
   { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/apartments" },
-  { id: 3, label: "Manage Users", icon: UsersIcon, link: "/users" },
   { id: 4, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
 ];
 
@@ -102,7 +100,7 @@ const Sidebar: React.FC = () => {
         </div>
 
         <div className="flex flex-col items-start mt-24">
-          {menuItems.map(({ icon: Icon, ...menu }) => {
+          {menuItems.map(({ icon: Icon, ...menu}) => {
             const classes = getNavItemClasses(menu);
             return (
               <div className={classes}>

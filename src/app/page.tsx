@@ -9,7 +9,7 @@ export default function Home() {
     
     <div className='text-black bg-sky-400'>
       <Layout>
-        
+        Home
       </Layout>
     </div>
   
