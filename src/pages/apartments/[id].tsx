@@ -57,7 +57,6 @@ export default function ApartmentDetail() {
 
   return (
     <Layout>
-      <div className=" mx-auto mt-5 py-12 px-20 bg-white rounded-lg shadow-xl hover:shadow-lg border-1 ml-0 sm:ml-40">
         {apartmentDetails ? (
           <>
             <div
@@ -182,7 +181,6 @@ export default function ApartmentDetail() {
         ) : (
           <p>Carregando...</p>
         )}
-      </div>
     </Layout>
   );
 }

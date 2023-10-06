@@ -63,7 +63,6 @@ const AddApartmentForm: React.FC = () => {
 
   return (
     <Layout>
-      <div className="mx-auto mt-10 py-12 bg-white rounded-lg shadow-xl p-4 hover:shadow-lg border-1 ml-0 sm:ml-64">
         <h1 className="text-3xl mb-4 font-bold">New Apartment</h1>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
           <label className="block">
@@ -158,7 +157,6 @@ const AddApartmentForm: React.FC = () => {
             </button>
           </div>
         </form>
-      </div>
     </Layout>
   );
 };

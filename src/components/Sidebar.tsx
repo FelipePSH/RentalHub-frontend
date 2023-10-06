@@ -21,7 +21,7 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
-  { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/apartments" },
+  { id: 2, label: "Manage Apartments", icon: ArticleIcon, link: "/apartments" },
 ];
 
 const Sidebar: React.FC = () => {
@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
   );
 
   const wrapperClasses = classNames(
-    "h-screen px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
+    "h-screen px-4 pt-8 pb-4 bg-light flex justify-between flex-col  rounded-lg shadow-xl hover:shadow-lg",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
