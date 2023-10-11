@@ -141,7 +141,7 @@ export default function ApartmentDetail() {
             </div>
             <div className="grid grid-rows-3 content-around mt-5 p-2">
               <div className="grid grid-cols-4 ">
-                <AddItemButton  icon={<BedIcon/>} text="New Apartment" link="/apartments/addApartment"/>
+                <AddItemButton  icon={<BedIcon/>} text="New bedroom" link={`/apartments/bedrooms/new?id=${id}`}/>
                 {apartmentDetails.bedrooms.map((bedroom, index) => (
                   <div key={index} className="mr-4 mt-4">
                     <BedroomCard bedroom={bedroom} />

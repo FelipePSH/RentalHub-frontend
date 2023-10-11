@@ -1,27 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDGg6_dt2lSL3YgYO41YyEGB9X2PA_l8To",
-  authDomain: "rental-hub-2100f.firebaseapp.com",
-  projectId: "rental-hub-2100f",
-  storageBucket: "rental-hub-2100f.appspot.com",
-  messagingSenderId: "527645672522",
-  appId: "1:527645672522:web:5c5a24ee2f1530389e12b3",
-  measurementId: "G-8HXVS5F3QS"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

@@ -1,4 +1,3 @@
-export { default as ArticleIcon } from "./ArticleIcon";
 export { default as HomeIcon } from "./HomeIcon";
 export { default as VideosIcon } from "./VideosIcon";
 export { default as CollapsIcon } from "./CollapseIcon";
