@@ -15,7 +15,7 @@ import {
 interface MenuItem {
   id: number;
   label: string;
-  icon?: React.FC; // tornando a propriedade icon opcional
+  icon?: React.FC;
   link: string;
 }
 
@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
   );
 
   const wrapperClasses = classNames(
-    "h-screen px-4 pt-8 pb-4 bg-light flex justify-between flex-col  rounded-lg shadow-xl hover:shadow-lg",
+    "h-screen px-4 pt-8 pb-4 bg-light dark:bg-black flex justify-between flex-col  rounded-lg shadow-xl hover:shadow-lg",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,

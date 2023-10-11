@@ -38,6 +38,7 @@ const config: Config = {
           '800': '#3b3834',
           '900': '#33312e',
           '950': '#161513',
+          '1000': '#1f1d1b',
       },
         pampas: {
           50: '#f8f7f3',
@@ -52,6 +53,9 @@ const config: Config = {
           900: '#554739',
           950: '#2d251d',
         },
+        'teste': {
+          50: "f8f7f3",
+        },
       text: {
         DEFAULT: "#FAFBFC",
         lighter: "#F3F4F6"
@@ -59,7 +63,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')],
 };
 
 export default config;
