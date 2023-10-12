@@ -1,13 +1,8 @@
-import React, { useEffect, useState, ChangeEvent} from "react";
+import React, { useEffect, useState, ChangeEvent } from "react";
 import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
 import InputUnderline from "@/components/forms/InputUnderline";
-import { copyToClipboard } from "@/utils/CopyToClipboardUtils";
-import {formatData} from "@/utils/DateFormatUtils"
 import Layout from "@/components/Layout";
-import BedroomCard from "@/components/BedroomCard";
-import AddItemButton from "@/components/AddItemButton";
-import BedIcon from "@/components/icons/BedIcon";
 import { EditIcon } from "@/components/icons";
 import VacancySelector from "@/components/VacancySelector";
 
@@ -24,55 +19,59 @@ const AddBedroom: React.FC = () => {
   const [formData, setFormData] = useState<AddBedroomProps>({
     name: "New Bedroom",
     description: "",
+    residents: [],
     vacancy: 2,
-    residents: []
   });
 
-    const [isEditing, setIsEditing] = useState(false);
-    const [editedName, setEditedName] = useState(formData.name);
-  
+  const handleVacancyChange = (newVacancy: number) => {
+    setFormData({ ...formData, vacancy: newVacancy }); // Atualize o estado com o novo número de vagas
+  };
 
-    const handleSubmit = async (e: any) => {
-      e.preventDefault();
-      // Enviar requisição POST para a API para criar um novo quarto
-      // Use o ID do apartamento do parâmetro da rota (id) para associar o quarto ao apartamento
-  
-      try {
-        const response = await fetch(`http://localhost:8080/api/apartments/bedroom/${id}`, {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState(formData.name);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(id)
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/apartments/bedroom/${id}`,
+        
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        });
-        if (response.ok) {
-          // Redirecionar de volta para a página de detalhes do apartamento após criar o quarto
-          router.push(`/apartments/${id}`);
-        } else {
-          console.error("Erro ao criar o quarto:", response.statusText);
         }
-      } catch (error) {
-        console.error("Erro ao criar o quarto:", error);
+      );
+      if (response.ok) {
+        // Redirecionar de volta para a página de detalhes do apartamento após criar o quarto
+        router.push(`/apartments/${id}`);
+      } else {
+        console.error("Erro ao criar o quarto:", response.statusText);
       }
-    };
+    } catch (error) {
+      console.error("Erro ao criar o quarto:", error);
+    }
+  };
 
-    const handleEditClick = () => {
-      setIsEditing(true);
-    };
-  
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setEditedName(e.target.value);
-    };
-  
-    const handleSaveClick = () => {
-      setFormData({ ...formData, name: editedName });
-      setIsEditing(false);
-    };
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedName(e.target.value);
+  };
+
+  const handleSaveClick = () => {
+    setFormData({ ...formData, name: editedName });
+    setIsEditing(false);
+  };
 
   return (
     <Layout>
-
-<form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 p-4">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 p-4">
         <h1
           className="text-3xl mb-4 font-bold flex items-center cursor-pointer"
           onClick={handleEditClick}
@@ -96,18 +95,18 @@ const AddBedroom: React.FC = () => {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-2">
-          <InputUnderline
-            labelName="Description"
-            type="text"
-            isRequired={true}
-            value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-          />
+            <InputUnderline
+              labelName="Description"
+              type="text"
+              isRequired={true}
+              value={formData.description}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
+            />
           </div>
           <div>
-              <VacancySelector minVacancy={1} />
+          <VacancySelector minVacancy={1} onVacancyChange={handleVacancyChange} />
           </div>
         </div>
 
@@ -120,9 +119,8 @@ const AddBedroom: React.FC = () => {
           </button>
         </div>
       </form>
-        
     </Layout>
   );
-}
+};
 
 export default AddBedroom;

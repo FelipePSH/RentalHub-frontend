@@ -4,18 +4,26 @@ import PlusIcon from "./icons/PlusIcon";
 
 interface VacancySelectorProps {
   minVacancy: number;
+  onVacancyChange: (vacancy: number) => void;
 }
 
-const VacancySelector: React.FC<VacancySelectorProps> = ({ minVacancy }) => {
+const VacancySelector: React.FC<VacancySelectorProps> = ({
+  minVacancy,
+  onVacancyChange,
+}) => {
   const [vacancy, setVacancy] = useState(minVacancy);
 
   const increaseVacancy = () => {
-    setVacancy(vacancy + 1);
+    const newVacancy = vacancy + 1;
+    setVacancy(newVacancy);
+    onVacancyChange(newVacancy);
   };
 
   const decreaseVacancy = () => {
     if (vacancy > minVacancy) {
-      setVacancy(vacancy - 1);
+      const newVacancy = vacancy - 1;
+      setVacancy(newVacancy);
+      onVacancyChange(newVacancy);
     }
   };
 
@@ -38,7 +46,7 @@ const VacancySelector: React.FC<VacancySelectorProps> = ({ minVacancy }) => {
         Increase
         <PlusIcon />
       </button>
-      <p className="ml-4 text-xl">Vacancy: {vacancy}</p>
+      <p className="ml-4 text-semibold">Vacancy: {vacancy}</p>
     </div>
   );
 };

@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useMemo } from "react";
 import {
-  ArticleIcon,
   CollapsIcon,
   HomeIcon,
   LogoIcon,
   LogoutIcon,
-  VideosIcon,
+  ApartmentsIcon
 } from "./icons";
 
 interface MenuItem {
@@ -21,7 +20,7 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
-  { id: 2, label: "Manage Apartments", icon: ArticleIcon, link: "/apartments" },
+  { id: 2, label: "Manage Apartments", icon: ApartmentsIcon, link: "/apartments" },
 ];
 
 const Sidebar: React.FC = () => {
