@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import BedroomCard from "@/components/BedroomCard";
 import AddItemButton from "@/components/AddItemButton";
 import BedIcon from "@/components/icons/BedIcon";
+import DrawerBedroomForm from "@/components/forms/DrawerBedroomForm";
 
 interface ApartmentDetailProps {
   id: number;
@@ -49,6 +50,7 @@ export default function ApartmentDetail() {
   };
 
   useEffect(() => {
+    
     if (id) {
       fetch(`http://localhost:8080/api/apartments/${id}`)
         .then((response) => response.json())
@@ -141,7 +143,7 @@ export default function ApartmentDetail() {
             </div>
             <div className="grid grid-rows-3 content-around mt-5 p-2">
               <div className="grid grid-cols-4 ">
-                <AddItemButton  icon={<BedIcon/>} text="New bedroom" link={`/apartments/bedrooms/new?id=${id}`}/>
+                <DrawerBedroomForm apartmentId={id?.toString()}/>
                 {apartmentDetails.bedrooms.map((bedroom, index) => (
                   <div key={index} className="mr-4 mt-4">
                     <BedroomCard bedroom={bedroom} />

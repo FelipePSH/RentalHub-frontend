@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MinusIcon from "./icons/MinusIcon";
 import PlusIcon from "./icons/PlusIcon";
+import { FormLabel } from "@chakra-ui/react";
+
 
 interface VacancySelectorProps {
   minVacancy: number;
@@ -28,6 +30,8 @@ const VacancySelector: React.FC<VacancySelectorProps> = ({
   };
 
   return (
+    <div>
+      <FormLabel htmlFor='vacancy'>Vacancy: {vacancy}</FormLabel>
     <div className="flex items-center mb-5">
       <button
         type="button"
@@ -46,8 +50,10 @@ const VacancySelector: React.FC<VacancySelectorProps> = ({
         Increase
         <PlusIcon />
       </button>
-      <p className="ml-4 text-semibold">Vacancy: {vacancy}</p>
     </div>
+
+    </div>
+    
   );
 };
 
